@@ -1,3 +1,4 @@
 #!/bin/bash
-./wait-for-it.sh db:5435 -t 30
-/var/www/html/bin/console d:m:m
+./wait-for-it.sh db:5432 -t 30 #ensure db connection
+bin/console d:m:m --no-interaction # execute db migrations
+php-fpm -F # keep php process running

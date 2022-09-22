@@ -2,7 +2,6 @@ version: '3.9'
 services:
     http:
         image: nginx
-        restart: always
         container_name: nginx
         ports:
             - "8002:80"
@@ -13,14 +12,12 @@ services:
             - php
     php:
         build:
-            context: symfony-testominal
+            context: ./
             dockerfile: docker/php/Dockerfile
-        restart: always
         container_name: php
+        env_file: docker/.env
         depends_on:
             - db
-        command:
-            - bash -c "bin/console d:m:m"
         ports:
             - "9000"
         volumes:
@@ -29,12 +26,11 @@ services:
     db:
         image: postgres:14.5
         container_name: db
-        restart: always
         environment:
             - POSTGRES_DB=${DB_NAME}
             - POSTGRES_USER=${DB_USER}
             - POSTGRES_PASSWORD=${DB_PASSWORD}
-            - PGDATA=/var/lib/postgresql/data/internal_data
+            - PGDATA=/var/lib/postgresql/data/pgdata
         volumes:
             - "./docker/postgres/conf:/docker-entrypoint-initdb.d"
             - "./db-data:/var/lib/postgresql/data"

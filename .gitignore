@@ -7,5 +7,7 @@
 /public/bundles/
 /var/
 /vendor/
-db-data/
 ###< symfony/framework-bundle ###
+
+db-data/
+.idea

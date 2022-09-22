@@ -5,9 +5,10 @@ RUN apt-get update \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install pdo pdo_pgsql pgsql
 
+WORKDIR /var/www/html
+# make composer available when installing packages inside the container
 COPY --from=composer /usr/bin/composer /usr/bin/composer
-COPY ./docker/php/entrypoint.sh /entrypoint.sh
-COPY ./wait-for-it.sh /wait-for-it.sh
-RUN chmod +x /entrypoint.sh
-RUN chmod +x /wait-for-it.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY ./docker/php/entrypoint.sh ./docker/php/entrypoint.sh
+COPY ./wait-for-it.sh ./
+RUN chmod +x ./docker/php/entrypoint.sh ./wait-for-it.sh
+ENTRYPOINT ["./docker/php/entrypoint.sh"]
