@@ -13,8 +13,8 @@ services:
             - php
     php:
         build:
-            context: ./
-            dockerfile: ./docker/php/Dockerfile
+            context: symfony-testominal
+            dockerfile: docker/php/Dockerfile
         restart: always
         container_name: php
         depends_on:
