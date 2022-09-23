@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="Shared\Bundles\Book\Entity\Book" table="book" inheritance-type="SINGLE_TABLE">
+        <id name="id" type="integer" column="id">
+            <generator strategy="IDENTITY"/>
+        </id>
+
+        <discriminator-column name="discriminator" type="enum" enumType="Shared\Contract\Enum\DiscriminatorContext"/>
+
+        <discriminator-map>
+            <discriminator-mapping value="base" class="Shared\Bundles\Book\Entity\Book"/>
+        </discriminator-map>
+
+        <field name="uuid" length="36" column="uuid" unique="true"/>
+        <field name="name"/>
+        <field name="description"/>
+        <field name="createdAt" type="datetime_immutable"/>
+        <field name="updatedAt" type="datetime_immutable"/>
+    </entity>
+</doctrine-mapping>

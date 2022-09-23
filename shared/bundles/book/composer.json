@@ -1,0 +1,19 @@
+{
+    "name": "shared/book",
+    "description": "Book shared bundle.",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "georgespirov",
+            "email": "email@example.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Shared\\Bundles\\Book\\": "src/"
+        }
+    }
+}

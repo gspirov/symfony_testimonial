@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Form;
+namespace Api\Form;
 
-use App\Entity\Book;
+use Api\Entity\Book;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
