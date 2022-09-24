@@ -16,6 +16,8 @@
         "nelmio/cors-bundle": "^2.2",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.8",
+        "ramsey/uuid": "^4.5",
+        "ramsey/uuid-doctrine": "^1.8",
         "sensio/framework-extra-bundle": "^6.2",
         "stof/doctrine-extensions-bundle": "^1.7",
         "symfony/asset": "6.1.*",
@@ -51,7 +53,9 @@
     "autoload": {
         "psr-4": {
             "Api\\": "src/",
-            "Shared\\Bundles\\Book\\": "../shared/bundles/book/src"
+            "Shared\\Bundles\\Book\\": "../shared/bundles/book/src/",
+            "Shared\\Contract\\Enum\\": "../shared/contract/enum/",
+            "Shared\\Contract\\": "../shared/contract/"
         }
     },
     "autoload-dev": {

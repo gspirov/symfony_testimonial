@@ -2,7 +2,7 @@
 
 namespace Shared\Contract;
 
-use Shared\Enum\DiscriminatorContext;
+use Shared\Contract\Enum\DiscriminatorContext;
 
 abstract class ShareableEntity
 {

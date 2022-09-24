@@ -2,6 +2,6 @@
 
 namespace Shared\Bundles\Book;
 
-use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class BookBundle extends AbstractBundle {}
+class BookBundle extends Bundle {}

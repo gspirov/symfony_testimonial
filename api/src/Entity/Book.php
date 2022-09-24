@@ -2,25 +2,23 @@
 
 namespace Api\Entity;
 
+use Api\Repository\BookRepository;
 use ApiPlatform\Metadata\ApiResource;
-use App\Repository\BookRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Uuid;
 use Shared\Bundles\Book\Entity\Book as BaseBook;
-use Shared\Enum\DiscriminatorContext;
+use Shared\Contract\Enum\DiscriminatorContext;
 
-#[ORM\Entity(repositoryClass: BookRepository::class)]
 #[ApiResource]
-#[ORM\InheritanceType('SINGLE_TABLE')]
-#[ORM\DiscriminatorColumn('discriminator')]
-#[ORM\DiscriminatorMap([
-    'api' => self::class
-])]
+#[ORM\Entity(repositoryClass: BookRepository::class)]
 class Book extends BaseBook
 {
     public function __construct()
     {
         $this->discriminator = DiscriminatorContext::API;
         $this->createdAt = new DateTimeImmutable;
+        $this->updatedAt = new DateTimeImmutable;
+        $this->uuid = Uuid::uuid1();
     }
 }

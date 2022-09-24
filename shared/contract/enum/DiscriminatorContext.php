@@ -1,6 +1,6 @@
 <?php
 
-namespace Shared\Enum;
+namespace Shared\Contract\Enum;
 
 enum DiscriminatorContext: string
 {

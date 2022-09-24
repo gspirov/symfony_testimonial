@@ -23,6 +23,7 @@ services:
         volumes:
             - "./docker/php/conf/php.ini:/usr/local/etc/php/conf.d/php.ini"
             - ".:/var/www/html"
+            - "../shared:/var/www/shared"
             - "../wait-for-it.sh:/var/www/html/wait-for-it.sh:ro"
     db:
         image: postgres:14.5

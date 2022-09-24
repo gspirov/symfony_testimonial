@@ -3,14 +3,14 @@
 namespace Shared\Bundles\Book\Entity;
 
 use DateTimeImmutable;
+use Ramsey\Uuid\UuidInterface;
 use Shared\Contract\ShareableEntity;
-use Shared\Enum\DiscriminatorContext;
 
 abstract class Book extends ShareableEntity
 {
     protected ?int $id = null;
 
-    protected DiscriminatorContext $discriminator = DiscriminatorContext::BASE;
+    protected UuidInterface $uuid;
 
     protected ?string $name = null;
 
@@ -28,6 +28,11 @@ abstract class Book extends ShareableEntity
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function getUuid(): UuidInterface
+    {
+        return $this->uuid;
     }
 
     public function setName(string $name): self
